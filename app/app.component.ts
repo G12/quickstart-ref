@@ -1,7 +1,27 @@
-import { Component } from '@angular/core';
+/**
+ * Created by thomaswiegand on 2016-10-27.
+ */
 
-@Component({
-    selector: 'my-app',
-    template: '<h1>My First Angular App</h1>'
-})
-export class AppComponent { }
+import {Component} from '@angular/core';
+
+import {HeroService} from './hero.service';
+
+@Component(
+    {
+        selector: 'my-app',
+        template: `<h1>{{title}}</h1>
+                    <nav>
+                         <a routerLink="/dashboard">Dashboard</a>
+                         <a routerLink="/heroes">Heroes</a>
+                    </nav>
+                    <router-outlet></router-outlet>
+                    `,
+        providers: [HeroService]
+    }
+)
+
+export class AppComponent {
+
+    title = 'Tour of Heroes';
+
+}
